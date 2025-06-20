@@ -1,4 +1,4 @@
-# Bash Scripting
+# Bash
 
 Bash (Bourne Again Shell) is an interpreter in the CLI (Terminal) and a scripting language that serves as the default shell on most Linux distros. It provides both an interactive interface for executing commands and a scripting environment for automation tasks. 
 
