@@ -51,3 +51,52 @@ It literally means: `"Hey OS, run the script using this program/interpreter"`
 
 ## Shell Scripting Basics
 - [Go to this link to learn the basics of Shell Scripting](https://www.tutorialspoint.com/unix/shell_scripting.htm)
+
+
+## Linux File Permissions and Ownership
+Linux file permissions and ownership are based on three layers:
+- **User (owner)**: The person who owns the file
+- **Group**: A group of users who can share permissions
+- **Others**: Everyone else
+
+Each layer has three types of permissions:
+- r -> read
+- w -> write
+- x -> execute (run, or enter directory)
+
+To view the metadata of a file, run the command `ls -l`, it will display something as follows:
+```
+-rwxr-xr-- 1 harshmeet devops  131 Jun 19  script.sh
+
+-rwxr-xr--  
+ │ │ │
+ │ │ └── "Others": can read only
+ │ └──── "Group": can read & execute
+ └────── "User": can read, write, execute
+```
+
+### chmod to change permissions
+Syntax: `chmod [options] [permissions] file`
+
+####Examples:
+```
+u -> user
+g -> group
+o -> others
+a -> all
+```
+- chmod u+x script.sh      # Add execute for User
+- chmod g-w script.sh      # Remove write for Group
+- chmod o=r script.sh      # Others can only read
+- chmod a+x script.sh      # All (user/group/others) can execute
+
+### chown to change ownership
+Syntax: `chown [user][:group] file`
+
+> [!IMPORTANT]
+> We need to be either `sudo | root` to change ownership of files
+
+####Examples
+- chown root script.sh 			# Change owner to root
+- chown maxdiplo:devops script.sh 	# Change owner to 'maxdiplo' and group 'devops'
+- chown :devops script.sh 		# Only change group
