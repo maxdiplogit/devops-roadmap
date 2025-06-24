@@ -78,7 +78,7 @@ To view the metadata of a file, run the command `ls -l`, it will display somethi
 ### chmod to change permissions
 Syntax: `chmod [options] [permissions] file`
 
-####Examples:
+#### Examples:
 ```
 u -> user
 g -> group
@@ -96,7 +96,7 @@ Syntax: `chown [user][:group] file`
 > [!IMPORTANT]
 > We need to be either `sudo | root` to change ownership of files
 
-####Examples
+#### Examples
 - chown root script.sh 			# Change owner to root
 - chown maxdiplo:devops script.sh 	# Change owner to 'maxdiplo' and group 'devops'
 - chown :devops script.sh 		# Only change group
