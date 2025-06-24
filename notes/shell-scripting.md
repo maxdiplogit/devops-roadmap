@@ -85,10 +85,12 @@ g -> group
 o -> others
 a -> all
 ```
+```
 - chmod u+x script.sh      # Add execute for User
 - chmod g-w script.sh      # Remove write for Group
 - chmod o=r script.sh      # Others can only read
 - chmod a+x script.sh      # All (user/group/others) can execute
+```
 
 ### chown to change ownership
 Syntax: `chown [user][:group] file`
@@ -97,6 +99,8 @@ Syntax: `chown [user][:group] file`
 > We need to be either `sudo | root` to change ownership of files
 
 #### Examples
+```
 - chown root script.sh 			# Change owner to root
 - chown maxdiplo:devops script.sh 	# Change owner to 'maxdiplo' and group 'devops'
 - chown :devops script.sh 		# Only change group
+```
