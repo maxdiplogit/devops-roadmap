@@ -127,4 +127,16 @@ When a shell is running, three main types of variables are present:
   bash -c 'echo $FOO'  # No output
   bash -c 'echo $BAR'  # 456
   ```
-- **Local Variables**: 
+- **Local Variables**: These are variables which are declared inside a function using the `local` keyword
+```
+my_func() {
+  local MESSAGE="hello"
+  echo "$MESSAGE"
+}
+
+my_func		# prints hello
+echo $MESSAGE	# prints nothing (not visible here)
+```
+
+> [!IMPORTANT]
+> Local Variables are only supported in `bash`, not POSIX `sh`
