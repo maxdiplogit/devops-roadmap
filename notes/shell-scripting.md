@@ -104,3 +104,27 @@ Syntax: `chown [user][:group] file`
 - chown maxdiplo:devops script.sh 	# Change owner to 'maxdiplo' and group 'devops'
 - chown :devops script.sh 		# Only change group
 ```
+
+## Variable Types in Shell
+When a shell is running, three main types of variables are present:
+- **Shell Variables**: These are variables created and used inside our shell session (or script) but not exported to sub processes
+  Example:
+  ```
+  NAME="maxdiplo"
+  echo $NAME
+  ```
+  - Only available to the current shell
+  - Not inherited by commands you run from this shell (e.g. a script, `ls`, `python`)
+- **Environment Variables**: These are variables that are exported to subprocesses and child shells
+  ```
+  export NAME="maxdiplo"
+  ```
+  Difference between shell and environment variable:
+  ```
+  FOO="123"       # shell variable
+  export BAR="456"  # environment variable
+
+  bash -c 'echo $FOO'  # No output
+  bash -c 'echo $BAR'  # 456
+  ```
+- **Local Variables**: 
