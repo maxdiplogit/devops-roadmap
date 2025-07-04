@@ -16,9 +16,9 @@ This level asks us to use the following commands:
 `ls` , `cd` , `cat` , `file`, `du` , `find`
 ```
 
-`file`: tells you what type of content a file contains (based on its content, not its name)
-`find`: searches for files and directories recursively in a given directory tree, based on various criteria like name, type, size, permissions, etc.
-`du`: estimates and reports file/directory disk usage, typically in blocks, KB, MB, or GB.
+- `file`: tells you what type of content a file contains (based on its content, not its name)
+- `find`: searches for files and directories recursively in a given directory tree, based on various criteria like name, type, size, permissions, etc.
+- `du`: estimates and reports file/directory disk usage, typically in blocks, KB, MB, or GB.
 
 This level asks us to login as the user `bandit0` using the password found in [Level 0](#level-0)
 
