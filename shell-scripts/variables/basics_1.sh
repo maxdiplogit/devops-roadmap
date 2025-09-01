@@ -10,7 +10,7 @@ echo "X: $X"
 
 # In order to mathematical operations, we need to use `expr` explicitly in sh shell
 # If we normally do $X+3, it would just print 10+3 on terminal, it's basic string concatenation
-Y=$(expr "$X" + 3)
+Y=$(expr $X + 3)
 echo "Y: $Y"
 
 # unset is used to remove the variables being tracked in the environment shell
