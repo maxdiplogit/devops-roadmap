@@ -140,3 +140,39 @@ echo $MESSAGE	# prints nothing (not visible here)
 
 > [!IMPORTANT]
 > Local Variables are only supported in `bash`, not POSIX `sh`
+
+
+## Special Variables in Shell
+Special Variables are built-in variables that the shell (bash, zsh, etc.) automatically sets for us. We don't declare them - they are always there and their meaning is special to the shell.
+
+They usually start with a `$` + `a symbol or a number`
+
+### Positional Parameters
+These are used when we pass arguments to a script
+
+- `$0` -> the name of the script iteself
+- `$<n>` -> the nth argument passed
+- `$@` -> all arguments, separately quoted
+- ``$*` -> all arguments, as one string
+- `$#` -> the number of arguments
+
+### Exit Status
+- `$?` -> the exit code of the last command
+  - if 0 -> success,
+  - else error
+
+### Process IDs
+- `$$` -> PID of the current shell/script
+- `$!` -> PID of the last background command
+
+### Special Symbols
+- `$_` -> the last argument of the previous command
+- `$-` -> current shell options (like `himBH`)
+- `$$`
+
+> [!NOTE]
+> - When are these special symbols actually used?
+> - `Script Arguments ($1, $2, $@)`: when writing scripts that take input
+> - `Error Handling ($!)`: check if a command succeeded
+> - `Process Control ($!, $$)`: useful in background jobs, debugging, logging
+> - `Scripting tricks ($_)`: handy for re-running commands on the last file/arg
