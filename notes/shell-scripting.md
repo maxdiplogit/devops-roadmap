@@ -176,3 +176,24 @@ These are used when we pass arguments to a script
 > - `Error Handling ($!)`: check if a command succeeded
 > - `Process Control ($!, $$)`: useful in background jobs, debugging, logging
 > - `Scripting tricks ($_)`: handy for re-running commands on the last file/arg
+
+
+## Arrays in Shell
+Array variables can hold multiple values at the same time, they provide a method of grouping a set of variables.
+
+- This is how we can create an array (variable) in Shell:
+  ```
+  NAME[0] = "Zara";
+  NAME[1] = "Ali";
+  ```
+
+- If we are using Bash, this is how we define array values:
+  ```
+  array_name=(value1 ... valuen);
+  ```
+
+- This is how we can access array values in Shell:
+  ```
+  ${array_name[index]}
+  ```
+
