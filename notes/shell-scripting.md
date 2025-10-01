@@ -197,3 +197,85 @@ Array variables can hold multiple values at the same time, they provide a method
   ${array_name[index]}
   ```
 
+## Shell Basic Operators
+Different kinds of operators supported by Shell (but mostly discussing about Bash)
+
+### Arithmetic Operators
+```
+a=10;
+b=20;
+```
+
+| Operator | Description                                                           | Example                                 |
+|----------|-----------------------------------------------------------------------|-----------------------------------------|
+| +        | Adds values on either side of the operator                            | `expr $a + $b` will give 30             |
+| -        | Subtracts right hand operand from left hand operand                   | `expr $a - $b` will give -10            |
+| *        | Multiplies values on either side of the operator                      | `expr $a \* $b` will give 200           |
+| /        | Divides left hand operand by right hand operand                       | `expr $b / $a` will give 2              |
+| %        | Divides left hand operand by right hand operand and returns remainder | `expr $b % $a` will give 0              |
+| =        | Assigns right operand to left operand                                 | `a = $b` would assign value of b into a |
+| ==       | Compares two numbers; returns true if both are same                   | `[ $a == $b ]` would return false       |
+| !=       | Compares two numbers; returns true if both are different              | `[ $a != $b ]` would return true        |
+
+### Relational Operators
+```
+a=10;
+b=20;
+```
+
+| Operator | Description                                                                                    | Example                     |
+|----------|------------------------------------------------------------------------------------------------|-----------------------------|
+| -eq      | Checks if the value of two operands are equal; true if equal                                   | `[ $a -eq $b ]` is not true |
+| -ne      | Checks if the value of two operands are not equal; true if not equal                           | `[ $a -ne $b ]` is true     |
+| -gt      | Checks if the left operand is greater than the right operand; true if yes                      | `[ $a -gt $b ]` is not true |
+| -lt      | Checks if the left operand is less than the right operand; true if yes                         | `[ $a -lt $b ]` is true     |
+| -ge      | Checks if the left operand is greater than or equal to the right operand; true if yes          | `[ $a -ge $b ]` is not true |
+| -le      | Checks if the left operand is less than or equal to the right operand; true if yes             | `[ $a -le $b ]` is true     |
+
+### Boolean Operators
+```
+a=10;
+b=20;
+```
+
+| Operator | Description                                                                                   | Example                                |
+|----------|-----------------------------------------------------------------------------------------------|----------------------------------------|
+| !        | Logical negation; inverts a true condition into false and vice versa                          | `[ ! false ]` is true                  |
+| -o       | Logical OR; true if at least one of the operands is true                                      | `[ $a -lt 20 -o $b -gt 100 ]` is true  |
+| -a       | Logical AND; true only if both operands are true                                              | `[ $a -lt 20 -a $b -gt 100 ]` is false |
+
+### String Operators
+```
+a="abc";
+b="efg";
+```
+
+| Operator | Description                                                                                    | Example                   |
+|----------|------------------------------------------------------------------------------------------------|---------------------------|
+| =        | Checks if the value of two operands are equal; true if equal                                   | `[ $a = $b ]` is not true |
+| !=       | Checks if the value of two operands are not equal; true if not equal                           | `[ $a != $b ]` is true    |
+| -z       | Checks if the string length is zero; true if it is zero                                        | `[ -z $a ]` is not true   |
+| -n       | Checks if the string length is non-zero; true if it is not empty                               | `[ -n $a ]` is not false  |
+| str      | Checks if the string is not empty; true if it is not empty                                     | `[ $a ]` is not false     |
+
+### File Test Operators
+```
+Assume a variable file holds an existing file name "test" the size of which is 100 bytes and has read, write and execute permission on
+```
+
+| Operator | Description                                                                                      | Example                    |
+|-------------------------------------------------------------------------------------------------------------|----------------------------|
+| -b file  | Checks if file is a block special file; true if yes                                              | `[ -b $file ]` is false    |
+| -c file  | Checks if file is a character special file; true if yes                                          | `[ -c $file ]` is false    |
+| -d file  | Checks if file is a directory; true if yes                                                       | `[ -d $file ]` is not true |
+| -f file  | Checks if file is an ordinary file; true if yes                                                  | `[ -f $file ]` is true     |
+| -g file  | Checks if file has its set group ID (SGID) bit set; true if yes                                  | `[ -g $file ]` is false    |
+| -k file  | Checks if file has its sticky bit set; true if yes                                               | `[ -k $file ]` is false    |
+| -p file  | Checks if file is a named pipe; true if yes                                                      | `[ -p $file ]` is false    |
+| -t file  | Checks if file descriptor is open and associated with a terminal; true if yes                    | `[ -t $file ]` is false    |
+| -u file  | Checks if file has its Set User ID (SUID) bit set; true if yes                                   | `[ -u $file ]` is false    |
+| -r file  | Checks if file is readable; true if yes                                                          | `[ -r $file ]` is true     |
+| -w file  | Checks if file is writable; true if yes                                                          | `[ -w $file ]` is true     |
+| -x file  | Checks if file is executable; true if yes                                                        | `[ -x $file ]` is true     |
+| -s file  | Checks if file has size greater than 0; true if yes                                              | `[ -s $file ]` is true     |
+| -e file  | Checks if file exists (true even for directories); true if yes                                   | `[ -e $file ]` is true     |
