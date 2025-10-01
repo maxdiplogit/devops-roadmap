@@ -263,19 +263,19 @@ b="efg";
 Assume a variable file holds an existing file name "test" the size of which is 100 bytes and has read, write and execute permission on
 ```
 
-| Operator | Description                                                                                      | Example                    |
-|-------------------------------------------------------------------------------------------------------------|----------------------------|
-| -b file  | Checks if file is a block special file; true if yes                                              | `[ -b $file ]` is false    |
-| -c file  | Checks if file is a character special file; true if yes                                          | `[ -c $file ]` is false    |
-| -d file  | Checks if file is a directory; true if yes                                                       | `[ -d $file ]` is not true |
-| -f file  | Checks if file is an ordinary file; true if yes                                                  | `[ -f $file ]` is true     |
-| -g file  | Checks if file has its set group ID (SGID) bit set; true if yes                                  | `[ -g $file ]` is false    |
-| -k file  | Checks if file has its sticky bit set; true if yes                                               | `[ -k $file ]` is false    |
-| -p file  | Checks if file is a named pipe; true if yes                                                      | `[ -p $file ]` is false    |
-| -t file  | Checks if file descriptor is open and associated with a terminal; true if yes                    | `[ -t $file ]` is false    |
-| -u file  | Checks if file has its Set User ID (SUID) bit set; true if yes                                   | `[ -u $file ]` is false    |
-| -r file  | Checks if file is readable; true if yes                                                          | `[ -r $file ]` is true     |
-| -w file  | Checks if file is writable; true if yes                                                          | `[ -w $file ]` is true     |
-| -x file  | Checks if file is executable; true if yes                                                        | `[ -x $file ]` is true     |
-| -s file  | Checks if file has size greater than 0; true if yes                                              | `[ -s $file ]` is true     |
-| -e file  | Checks if file exists (true even for directories); true if yes                                   | `[ -e $file ]` is true     |
+| Operator | Description                                                                                   | Example                    |
+|----------|-----------------------------------------------------------------------------------------------|----------------------------|
+| -b file  | True if file is a block special file                                                          | `[ -b $file ]` is false    |
+| -c file  | True if file is a character special file                                                      | `[ -c $file ]` is false    |
+| -d file  | True if file is a directory                                                                   | `[ -d $file ]` is not true |
+| -f file  | True if file is a regular file (not directory or special file)                                | `[ -f $file ]` is true     |
+| -g file  | True if file has its set-group-ID (SGID) bit set                                              | `[ -g $file ]` is false    |
+| -k file  | True if file has its sticky bit set                                                           | `[ -k $file ]` is false    |
+| -p file  | True if file is a named pipe (FIFO)                                                           | `[ -p $file ]` is false    |
+| -t file  | True if file descriptor is open and associated with a terminal                                | `[ -t $file ]` is false    |
+| -u file  | True if file has its set-user-ID (SUID) bit set                                               | `[ -u $file ]` is false    |
+| -r file  | True if file is readable                                                                      | `[ -r $file ]` is true     |
+| -w file  | True if file is writable                                                                      | `[ -w $file ]` is true     |
+| -x file  | True if file is executable                                                                    | `[ -x $file ]` is true     |
+| -s file  | True if file size is greater than 0                                                           | `[ -s $file ]` is true     |
+| -e file  | True if file exists (including directories)                                                   | `[ -e $file ]` is true     |
