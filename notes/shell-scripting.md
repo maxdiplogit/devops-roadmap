@@ -279,3 +279,76 @@ Assume a variable file holds an existing file name "test" the size of which is 1
 | -x file  | True if file is executable                                                                    | `[ -x $file ]` is true     |
 | -s file  | True if file size is greater than 0                                                           | `[ -s $file ]` is true     |
 | -e file  | True if file exists (including directories)                                                   | `[ -e $file ]` is true     |
+
+
+## Decision Making
+Two different ways for decision making in shell scripting
+
+### if...else statement
+Syntax:
+```
+if [ expression 1 ]
+then
+   Statement(s) to be executed if expression 1 is true
+elif [ expression 2 ]
+then
+   Statement(s) to be executed if expression 2 is true
+elif [ expression 3 ]
+then
+   Statement(s) to be executed if expression 3 is true
+else
+   Statement(s) to be executed if no expression is true
+fi
+```
+
+### case...esac statement
+```
+case word in
+   pattern1)
+      Statement(s) to be executed if pattern1 matches
+      ;;
+   pattern2)
+      Statement(s) to be executed if pattern2 matches
+      ;;
+   pattern3)
+      Statement(s) to be executed if pattern3 matches
+      ;;
+   *)
+     Default condition to be executed
+     ;;
+esac
+```
+
+
+## Shell Loops
+There are 4 different kinds of loops that can be used in Shell Scripting
+
+### `while` loop
+Syntax:
+```
+while command
+do
+   Statement(s) to be executed if command is true
+done
+```
+
+### `for` loop
+This loop has many variations, but some are specific to Bash only
+
+- POSIX for loop syntax:
+  ```
+  for var in word1 word2 ... wordN
+  do
+    Statement(s) to be executed for every word.
+  done
+  ```
+
+- Bash specific c-style syntax:
+  ```
+  for (( i=start_value; i<=end_value; i++ ))
+  do
+    echo "Current number: $i"
+  done
+  ```
+
+
