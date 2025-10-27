@@ -351,4 +351,11 @@ This loop has many variations, but some are specific to Bash only
   done
   ```
 
-
+- POSIX until loop syntax:
+  The until loop will keep on executing only if the condition specified is false
+  ```
+  until [ <false condition> ]
+  do
+    // do something
+  done
+  ```
