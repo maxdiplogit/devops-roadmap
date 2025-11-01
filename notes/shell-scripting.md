@@ -359,3 +359,51 @@ This loop has many variations, but some are specific to Bash only
     // do something
   done
   ```
+
+## Substitutions
+The shell performs substitution when it encounters an expression that contains one or more special characters.
+
+The following escape sequences which can be used in echo command:
+| Escape | Description                 |
+|:-------|:----------------------------|
+| `\\`   | Backslash                   |
+| `\a`   | Alert (BEL)                 |
+| `\b`   | Backspace                   |
+| `\c`   | Suppress trailing newline   |
+| `\f`   | Form feed                   |
+| `\n`   | New line                    |
+| `\r`   | Carriage return             |
+| `\t`   | Horizontal tab              |
+| `\v`   | Vertical tab                |
+
+
+You can use the -E option to disable the interpretation of the backslash escapes (default).
+
+You can use the -n option to disable the insertion of a new line.
+
+
+### Command substitutions
+Command substitution is the mechanism by which the shell performs a given set of commands and then substitutes their output in the place of the commands.
+
+Syntax:
+When performing the command substitution make sure that you use the backquote, not the single quote character.
+```
+\`command\`
+```
+
+Command substitution is generally used to assign the output of a command to a variable.
+
+
+### Variable Substitution
+Variable substitution enables the shell programmer to manipulate the value of a variable based on its state.
+
+Here is the following table for all the possible substitutions:
+| Form              | Description                                                                                                                      |
+|:------------------|:---------------------------------------------------------------------------------------------------------------------------------|
+| `${var}`          | Substitute the value of `var`.                                                                                                   |
+| `${var:-word}`    | If `var` is null or unset, `word` is substituted for `var`. The value of `var` does not change.                                  |
+| `${var:=word}`    | If `var` is null or unset, `var` is set to the value of `word`.                                                                  |
+| `${var:?message}` | If `var` is null or unset, `message` is printed to standard error. This is useful for checking that variables are set correctly. |
+| `${var:+word}`    | If `var` is set, `word` is substituted for `var`. The value of `var` does not change.                                            |
+
+
