@@ -407,3 +407,110 @@ Here is the following table for all the possible substitutions:
 | `${var:+word}`    | If `var` is set, `word` is substituted for `var`. The value of `var` does not change.                                            |
 
 
+
+## Quoting Mechanisms
+Can find this section with examples in `shell-scripts/quoting-mechanisms` directory
+
+
+
+## IO Redirections
+Most Unix system commands take input from your terminal and send the resulting output back to your terminal. A command normally reads its input from the standard input, which happens to be your terminal by default. Similarly, a command normally writes its output to standard output, which is again your terminal by default.
+
+
+### Output Redirection
+The output for a command which is normally intended for standard output can be easily diverted to a file instead. This capability is known as **Output Redirection**.
+
+If the notation > file is appended to any command that normally writes its output to standard output, the output of that command will be written to file instead of your terminal.
+
+Example:
+```
+$ who > users.txt
+```
+
+If a command has its output redirected to a file and the file already contains some data, that data will be lost.
+
+We can use `>>` operator to append the output in an existing file as follows:
+```
+$ echo "hello world" >> users.txt
+```
+
+
+### Input Redirection
+Just as the output of a command can be redirected to a file, so can the input for a command be redirected from a file. The `<` operator is used for this purpose.
+
+So basically, instead of prompting the user for an input on the terminal or by specifying some specific arguments for a command, we can pass inputs from any sort of file (or output from some other command) directly to the command using this operator.
+
+The file that we generated while studying output redirection, lets take that file.
+
+Lets get the line count of that file using standard `wc` approach:
+```
+$ wc -l users.txt
+
+Result: 2 users.txt
+```
+
+Now instead of specifying the file as an arg to `wc`, lets give the command input directly from the file `users.txt` using **Input Redirection**:
+```
+$ wc -l < users
+
+Result: 2
+```
+
+In the first case, wc knows that it is reading its input from the file users. In the second case, it only knows that it is reading its input from standard input so it does not display file name in the result.
+
+
+### Here Document
+A **Here Document** is used to redirect input into an interactive shell-script or program.
+
+So basically, if we want to give a very large text input from the terminal (standard input) itself, we can use the **Here Document**
+
+Syntax:
+```
+$ command << delimiter
+fill some text
+over here
+delimeter
+```
+
+Here the shell interprets the `<<` operator as an instruction to read input until it finds a line containing the specified delimiter. All the input lines up to the line containing the delimiter are then fed into the standard input of the command.
+
+The delimiter tells the shell that the **Here Document** has completed. Without it, the shell continues to read the input forever. The delimiter must be a single word that does not contain spaces or tabs.
+
+
+Example:
+```
+$ wc -l << EOF
+This is a sample lookup program
+for testing Here Document functionality
+EOF
+
+Result: 3
+```
+
+
+### Discard the Output
+Sometimes you will need to execute a command, but you don't want the output displayed on the screen. In such cases, you can discard the output by redirecting it to the file `/dev/null`.
+
+Syntax:
+```
+$ command > /dev/null
+```
+
+The file `/dev/null` is a special file that automatically discards all its input.
+
+> [!IMPORTANT]
+> NOTE: Read up about file descriptors and what they are (basic working of the UNIX system, it's a must for any devops engineer)
+
+
+### Redirection Commands
+| Command       | Description                                                               |
+|---------------|---------------------------------------------------------------------------|
+| `pgm > file`  | Redirects the output of `pgm` to `file` (overwrite).                      |
+| `pgm < file`  | Makes `pgm` read its input from `file`.                                   |
+| `pgm >> file` | Appends the output of `pgm` to `file`.                                    |
+| `n > file`    | Redirects output from file descriptor *n* to `file`.                      |
+| `n >> file`   | Appends output from file descriptor *n* to `file`.                        |
+| `n >& m`      | Merges output of file descriptor *n* with file descriptor *m*.            |
+| `n <& m`      | Merges input of file descriptor *n* with file descriptor *m*.             |
+| `<< tag`      | Here-document: standard input is read until a line containing only `tag`. |
+| `&verbar`     | Takes output from one program, or process, and sends it to another        |
