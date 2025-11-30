@@ -514,3 +514,18 @@ The file `/dev/null` is a special file that automatically discards all its input
 | `n <& m`      | Merges input of file descriptor *n* with file descriptor *m*.             |
 | `<< tag`      | Here-document: standard input is read until a line containing only `tag`. |
 | `&verbar`     | Takes output from one program, or process, and sends it to another        |
+
+
+
+## Functions
+Functions, their implementation can be seen inside the `shell_scripts` folder.
+
+### Function Call from Prompt
+We can put definitions for commonly used functions (the ones that we create or we use someone else's functions) in `.profile`. These function definitions will be available whenever we log in and we can use them at the command prompt.
+
+Or put the function/s in a bash script and then just execute that bash script.
+
+To remove the definition of a function from the shell, use the `unset` command with the `-f` option. This command is also used to remove the definition of a variable to the shell.
+```
+$ unset -f function_name
+```
